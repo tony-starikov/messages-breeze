@@ -16,4 +16,9 @@ class Message extends Model
     {
         return $this->hasMany(Message::class);
     }
+
+    public function childMessages(): HasMany
+    {
+        return $this->hasMany(Message::class)->with('messages');
+    }
 }
