@@ -17,12 +17,11 @@ class MessageFactory extends Factory
     public function definition(): array
     {
         return [
-            'parent_id' => fake()->numberBetween(1, 5),
+            'message_id' => fake()->numberBetween(1, 100),
             'user_name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'text' => fake()->paragraph(),
             'home_page' => fake()->url(),
-//            'remember_token' => Str::random(10),
         ];
     }
 }

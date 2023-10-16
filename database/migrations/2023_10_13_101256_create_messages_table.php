@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->unsignedBigInteger('message_id')->nullable();
             $table->string('user_name');
             $table->string('email');
             $table->text('text');
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('image')->nullable();
             $table->text('txt_file')->nullable();
 
-            $table->foreign('parent_id')->references('id')->on('messages');
+            $table->foreign('message_id')->references('id')->on('messages');
 
             $table->timestamps();
         });
