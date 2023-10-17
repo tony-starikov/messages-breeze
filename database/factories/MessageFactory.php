@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +23,7 @@ class MessageFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'text' => fake()->paragraph(),
             'home_page' => fake()->url(),
+            'created_at' => Carbon::createFromTimestamp(time() + 100),
         ];
     }
 }

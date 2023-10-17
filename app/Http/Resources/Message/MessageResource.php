@@ -22,7 +22,7 @@ class MessageResource extends JsonResource
             'text' => $this->text,
             'image' => $this->image,
             'txt_file' => $this->txt_file,
-            'created_at' => $this->created_at->diffForHumans(),
+            'created_at' => $this->created_at->format('M d Y h:i:s'),
 
             'child_messages' => MessageResource::collection($this->childMessages)->resolve(),
         ];

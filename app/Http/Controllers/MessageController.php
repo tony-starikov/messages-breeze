@@ -14,8 +14,9 @@ class MessageController extends Controller
      */
     public function index(): Response
     {
-        $messages = Message::whereNull('message_id')->paginate(25);
-        $messages = MessageResource::collection($messages)->resolve();
+        $messages = Message::whereNull('message_id')->latest()->paginate(25)->withQueryString();
+
+        $messages = MessageResource::collection($messages);
 
         return Inertia::render('Messages', [
             'messages' => $messages,
