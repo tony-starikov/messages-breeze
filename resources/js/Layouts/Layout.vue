@@ -1,6 +1,6 @@
 <template>
-    <div class="container-fluid">
-        <Navigation />
+    <Navigation />
+    <div class="container">
         <slot />
     </div>
 </template>

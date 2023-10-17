@@ -2,11 +2,7 @@
     <Head>
         <title>{{ title }}</title>
     </Head>
-    <section class="p-5">
-        <h1 class="h4 px-5">
-            All topics
-        </h1>
-
+    <section class="p-5 pb-0">
         <div class="row px-5">
             <div class="col-3">
                 <h5 class="fw-normal">
@@ -43,15 +39,19 @@
             </div>
         </div>
 
-        <div v-for="parent_message in messages" class="row px-5 py-2 mb-3 border border-2 rounded-4">
+        <div v-for="parent_message in messages.data" class="row px-5 py-2 mb-3">
             <Message :message="parent_message" />
         </div>
     </section>
+
+    <Pagination :data="messages.meta" />
 </template>
 
 <script>
 import {Head} from "@inertiajs/vue3";
 import Message from "@/Layouts/Message.vue";
+import Pagination from "@/Layouts/Pagination.vue";
+import { Link } from '@inertiajs/vue3'
 
 export default {
     name: 'Messages',
@@ -62,9 +62,12 @@ export default {
     components: {
         Head,
         Message,
+        Pagination,
+        Link
     },
     mounted() {
-        console.log(this.messages);
+        console.log('LINKS!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+        // console.log(this.data.meta);
     }
 }
 </script>
